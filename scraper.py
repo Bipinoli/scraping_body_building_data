@@ -58,10 +58,10 @@ def scrapeAllExercisesBasedOnType():
         pageNum = 1
         while True:
             url = "https://www.bodybuilding.com/exercises/finder/"+ str(pageNum) +"/?exercise-type=" + typ
-            save_directory = save_file_name = "./ExercisesType/" + typ + "/"
+            save_directory = "./ExercisesType/" + typ + "/"
             if not os.path.exists(save_directory):
                 os.makedirs(save_directory)
-            save_file_name = save_file_name + str(pageNum) + ".json"
+            save_file_name = save_directory + str(pageNum) + ".json"
             pageNum += 1
             if not scrapePage(url, save_file_name)["moreContents"]:
                 break
@@ -79,10 +79,10 @@ def scrapeAllExercisesBasedOnLevel():
         pageNum = 1
         while True:
             url = "https://www.bodybuilding.com/exercises/finder/"+ str(pageNum) +"/?level=" + level + "&cacheBust=1"
-            save_directory = save_file_name = "./ExercisesLevel/" + level + "/"
+            save_directory = "./ExercisesLevel/" + level + "/"
             if not os.path.exists(save_directory):
                 os.makedirs(save_directory)
-            save_file_name = save_file_name + str(pageNum) + ".json"
+            save_file_name = save_directory + str(pageNum) + ".json"
             pageNum += 1
             if not scrapePage(url, save_file_name)["moreContents"]:
                 break
@@ -97,18 +97,18 @@ def scrapeAllExercisesBasedOnMechanicsType():
     for mechanics in mechanics_type:
         pageNum = 1
         while True:
-            url = "https://www.bodybuilding.com/exercises/finder/"+ str(pageNum) +"/?mechanics=" + mechanics + "&cacheBust=1"
-            save_directory = save_file_name = "./ExercisesMechanics/" + mechanics + "/"
+            url = "https://www.bodybuilding.com/exercises/finder/"+ str(pageNum) +"/?mechanics-type=" + mechanics + "&cacheBust=1"
+            save_directory = "./ExercisesMechanics/" + mechanics + "/"
             if not os.path.exists(save_directory):
                 os.makedirs(save_directory)
-            save_file_name = save_file_name + str(pageNum) + ".json"
+            save_file_name = save_directory + str(pageNum) + ".json"
             pageNum += 1
             if not scrapePage(url, save_file_name)["moreContents"]:
                 break
 
 
 
-scrapeAllExercisesBasedOnMechanicsType()
+# scrapeAllExercisesBasedOnMechanicsType()
 
 # data = scrapePage("https://www.bodybuilding.com/exercises/finder/3/?exercise-type=cardio", "dont.json")
 # print(data["moreContents"])

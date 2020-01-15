@@ -1,1 +1,0 @@
-https://neo4j.com/developer/kb/import-csv-locations/
